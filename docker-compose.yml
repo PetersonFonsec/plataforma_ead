@@ -4,8 +4,7 @@ services:
   postgres_db:
     image: postgres
     restart: always
-    ports:
-      - "5432:5432"
+    ports: ["5432:5432"]
     volumes:
       - postgres_db:/var/lib/postgresql/data
     env_file:
@@ -14,15 +13,10 @@ services:
     depends_on:
       - postgres_db
     build: ./plataforma_ead_backend/
-    ports: [ "3000:3000" ]
+    ports: ["3000:3000"]
     restart: "always"
-    networks:
-      - backend
     volumes:
       - ".:/home/node/app"
-networks:
-  backend:
-    driver: bridge
 volumes:
   postgres_db:
     driver: local
