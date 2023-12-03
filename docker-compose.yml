@@ -9,6 +9,14 @@ services:
       - postgres_db:/var/lib/postgresql/data
     env_file:
       - ./config/db.env
+  pgadmin-compose:
+    image: dpage/pgadmin4
+    env_file:
+      - ./config/db.env
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres_db
   backend:
     depends_on:
       - postgres_db
