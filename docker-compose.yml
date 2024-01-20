@@ -25,8 +25,19 @@ services:
     restart: "always"
     volumes:
       - ".:/home/node/app"
+  frontend-director:
+    depends_on:
+      - backend
+    build: ./plataforma_ead_frontend_director/
+    ports: ["4200:4200"]
+    restart: "always"
+    volumes:
+      - "./plataforma_ead_frontend_director:/app"
+      - "/app/node_modules"
 volumes:
   postgres_db:
     driver: local
   backend:
+    driver: local
+  frontend-director:
     driver: local
