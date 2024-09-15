@@ -1,6 +1,6 @@
 {
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "cssVariables.lookupFiles": [
-        "plataforma_ead_frontend_director/src/app/scss/index.scss"
+        "plataforma_ead_frontend_director/src/styles.scss"
     ],
 }
